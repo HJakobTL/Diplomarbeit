@@ -1,0 +1,44 @@
+# ====================================================================
+#  Gesamt-Projekt-Metadaten  —  Diplomarbeit BIS-Ares (Gemeinschaftswerk)
+#  Wird vom Makefile via --metadata-file an pandoc/template.latex gereicht.
+# ====================================================================
+
+# --- Build-Einstellungen ---
+documentclass: scrreprt
+papersize: a4
+fontsize: 12pt
+lang: de-DE
+toc: false              # kein globales Inhaltsverz.; per-Person via minitoc
+lof: false
+link-citations: true
+bibliography: references.bib
+csl: iso690-author-date-de.csl
+
+# --- Schule ---
+schule: "HTBLVA, Wien V, Spengergasse"
+fachrichtung: "Informatik"
+schwerpunkt: "Software Engineering"
+schuljahr: "2025/26"
+
+# --- Gesamtprojekt ---
+gesamttitel: "BIS-Ares"
+gesamtuntertitel: "Ein Bürger-Informationssystem mit modernem, modularem Web-Frontend"
+kooperationspartner: "Magistrat der Stadt Wien (MA 35)"
+
+# --- Student:innen (Deckblatt, Eidesstatt, Teile) ---
+studenten:
+  - nr: "I"
+    name: "Samaneh Madani"
+    thema: "Frontend & UI-Design mit Angular & Tailwind"
+    betreuer: "Stefan Breiteneder"
+    klasse: "6AKIF"
+  - nr: "II"
+    name: "Maria Binder"
+    thema: "Backend & REST-API mit Node.js und Express"
+    betreuer: "Stefan Breiteneder"
+    klasse: "6AKIF"
+  - nr: "III"
+    name: "Negin Sadeghi"
+    thema: "Datenbankarchitektur und Datenmodellierung mit PostgreSQL"
+    betreuer: "Stefan Breiteneder"
+    klasse: "6AKIF"

@@ -1,0 +1,18 @@
+# LaTeX/Build-Artefakte
+*.aux
+*.fls
+*.fdb_latexmk
+*.log
+*.out
+*.toc
+*.xdv
+*.bbl
+*.blg
+*.run.xml
+*.bcf
+*.maf
+*.mtc
+*.mtc[0-9]
+*.mtc[0-9][0-9]
+Diplomarbeit_BIS-Ares.tex
+Diplomarbeit_BIS-Ares.pdf

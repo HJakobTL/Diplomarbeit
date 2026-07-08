@@ -1,0 +1,202 @@
+% =====================================================================
+%  Diplomarbeit BIS-Ares — Gesamtprojekt (Gemeinschaftswerk, 3 Teile)
+%  KOMA-Script (scrreprt) · XeLaTeX · pandoc-Template
+%  Layout lt. HTL-Spengergasse-Vorlage (Deckblatt rekonstruiert via Image-LLM)
+% =====================================================================
+\documentclass[
+  $if(fontsize)$$fontsize$$endif$pt,
+  $if(papersize)$$papersize$paper$endif$,
+  headings=small,
+  parskip=half,
+  listof=totoc,
+  bibliography=totoc,
+  numbers=noenddot
+]{scrreprt}
+
+% --- Geometrie ---
+\usepackage[
+  top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm
+]{geometry}
+
+% --- Schrift (Hybrid: Pagella-Serif Body, Heros-Sans Headings/Deckblatt) ---
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Pagella}
+\setsansfont{TeX Gyre Heros}
+\setmonofont{DejaVu Sans Mono}
+% Überschriften in Heros fett (offizielles HTL-Bild)
+\setkomafont{disposition}{\sffamily\bfseries}
+\setkomafont{title}{\sffamily\bfseries}
+
+% --- Sprache ---
+\usepackage{polyglossia}
+\setdefaultlanguage{german}
+\setotherlanguage{english}
+
+% --- Mikrotypografie, Mathe ---
+\usepackage{microtype}
+\usepackage{amsmath}
+
+% --- Farben ---
+\usepackage{xcolor}
+\definecolor{spenred}{RGB}{192,57,43}
+\definecolor{htlblue}{RGB}{0,61,122}
+
+% --- Grafik, Tabellen ---
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{booktabs}
+
+% --- Inhaltsverzeichnis pro Teil (per-Person TOC via etoc) ---
+\usepackage{etoc}
+\etocsettocstyle{\section*{\contentsname}}{\vspace{0.6em}}
+
+% --- Links ---
+\usepackage[unicode=true]{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=htlblue,
+  pdfauthor={Samaneh Madani, Maria Binder, Negin Sadeghi},
+  pdftitle={Diplomarbeit BIS-Ares}
+}
+
+% --- Kopf-/Fußzeile (Innenseiten) ---
+\usepackage[automark,headsepline,footsepline]{scrlayer-scrpage}
+\clearpairofpagestyles
+\ihead{\sffamily HTBLVA Wien V, Spengergasse}
+\ofoot[\pagemark]{\pagemark}
+\renewcommand{\headfont}{\sffamily\small}
+\renewcommand{\pnumfont}{\sffamily\small}
+
+% --- Quellcode (pandoc skylighting) ---
+$highlighting-macros$
+\fvset{fontsize=\scriptsize}
+
+% --- Pandoc tight lists ---
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% --- CSL-Referenzen (citeproc) ---
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+  \let\@cite@ofmt\@firstofone
+  \def\@biblabel#1{}
+  \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2]
+ {\begin{list}{}{%
+   \setlength{\itemindent}{0pt}\setlength{\leftmargin}{0pt}\setlength{\parsep}{0pt}
+   \ifodd #1
+    \setlength{\leftmargin}{\cslhangindent}\setlength{\itemindent}{-1\cslhangindent}
+   \fi
+   \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+% --- minitoc-Titel ---
+\setcounter{tocdepth}{2}
+
+\begin{document}
+
+% =====================================================================
+%  GESAMT-DECKBLATT
+% =====================================================================
+\begin{titlepage}
+\thispagestyle{empty}
+\sffamily
+\setlength{\tabcolsep}{0pt}
+
+\noindent
+\begin{tabular}{@{}p{3.0cm} p{9.8cm} p{3.0cm}@{}}
+  \raisebox{-0.5\height}{\includegraphics[width=2.8cm]{assets/logo-spengergasse.png}}
+  &
+  \centering
+  {\Large\bfseries $schule$}\\[0.25cm]
+  {\normalsize Höhere Lehranstalt für $fachrichtung$}\\[0.08cm]
+  {\normalsize Ausbildungsschwerpunkt $schwerpunkt$}
+  &
+  \raggedleft
+  \raisebox{-0.5\height}{\includegraphics[width=2.8cm]{assets/logo-htl.png}}
+\end{tabular}
+
+\vspace{0.3cm}
+\hrule height 0.5pt
+
+\vspace{2.2cm}
+\begin{center}
+  {\Huge\bfseries DIPLOMARBEIT}\\[1.4cm]
+  {\large Gesamtprojekt}\\[0.3cm]
+  {\huge\bfseries\color{htlblue} $gesamttitel$}\\[0.4cm]
+  {\Large $gesamtuntertitel$}
+\end{center}
+
+\vspace{1.8cm}
+\setlength{\tabcolsep}{4pt}
+\noindent
+\begin{tabular}{@{}p{6.6cm} p{1.8cm} r p{4.0cm}@{}}
+$for(studenten)$
+  \textbf{$studenten.thema$}\\
+  $studenten.name$ & $studenten.klasse$ & Betreuer: & $studenten.betreuer$ \\[0.9cm]
+$endfor$
+\end{tabular}
+
+\vfill
+\noindent Schuljahr $schuljahr$ \hfill Kooperationspartner: $kooperationspartner$
+
+\vspace{1.0cm}
+\noindent\textbf{Abgabevermerk:}\\[0.4cm]
+\begin{tabular}{@{}p{6cm} p{6cm}@{}}
+  Datum: TT.MM.JJJJ & übernommen von:
+\end{tabular}
+\end{titlepage}
+
+% =====================================================================
+%  EIDESSTATTLICHE ERKLÄRUNG (Team)
+% =====================================================================
+\thispagestyle{empty}
+\begingroup\sffamily
+\begin{center}
+  {\Large\bfseries EIDESSTATTLICHE ERKLÄRUNG}
+\end{center}
+\vspace{0.6cm}
+
+Hiermit versichere ich, dass ich die vorliegende Arbeit selbstständig verfasst und keine
+anderen Hilfsmittel als die angegebenen benützt habe. Die Stellen, die anderen Werken
+(gilt ebenso für Werke aus elektronischen Datenbanken oder aus dem Internet) wörtlich oder
+sinngemäß entnommen sind, habe ich unter Angabe der Quelle und Einhaltung der Regeln
+wissenschaftlichen Zitierens kenntlich gemacht. Diese Versicherung umfasst auch in der
+Arbeit verwendete bildliche Darstellungen, Tabellen, Skizzen und Zeichnungen.
+
+Sofern für die Erstellung der Arbeit generative KI-Tools eingesetzt wurden, so sind auch
+diese im Quellenverzeichnis vollständig und wahrheitsgetreu inkl.\ Produktversion und
+Prompt ausgewiesen.
+
+\vspace{1.8cm}
+\noindent
+\begin{tabular}{@{}p{6cm} p{8cm}@{}}
+  Wien, am TT.MM.JJJJ & Verfasserinnen / Verfasser: \\
+$for(studenten)$
+  & \\[0.3cm]
+  & \rule{6cm}{0.4pt}\\[0.1cm]
+  & ($studenten.name$) \\[0.7cm]
+$endfor$
+\end{tabular}
+\endgroup
+\clearpage
+
+% =====================================================================
+%  HAUPTTEIL (pandoc body): 0-frontmatter, 3 Teile, 9-projektarbeit
+% =====================================================================
+$body$
+
+\end{document}
