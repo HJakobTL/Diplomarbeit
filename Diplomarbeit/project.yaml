@@ -8,7 +8,7 @@ documentclass: scrreprt
 papersize: a4
 fontsize: 12pt
 lang: de-DE
-toc: false              # kein globales Inhaltsverz.; per-Person via minitoc
+toc: false # kein globales Inhaltsverz.; per-Person via minitoc
 lof: false
 link-citations: true
 bibliography: references.bib
@@ -21,24 +21,29 @@ schwerpunkt: "Software Engineering"
 schuljahr: "2025/26"
 
 # --- Gesamtprojekt ---
-gesamttitel: "BIS-Ares"
-gesamtuntertitel: "Ein Bürger-Informationssystem mit modernem, modularem Web-Frontend"
-kooperationspartner: "Magistrat der Stadt Wien (MA 35)"
+gesamttitel: "Better City"
+gesamtuntertitel: "TODO: KOMMT NOCH"
+kooperationspartner: "TODO: KOMMT NOCH"
 
 # --- Student:innen (Deckblatt, Eidesstatt, Teile) ---
 studenten:
   - nr: "I"
-    name: "Samaneh Madani"
-    thema: "Frontend & UI-Design mit Angular & Tailwind"
-    betreuer: "Stefan Breiteneder"
-    klasse: "6AKIF"
+    name: "Alexander Biegel"
+    thema: "TODO: KOMMT NOCH"
+    betreuer: "Georg Graf"
+    klasse: "6AAIF"
   - nr: "II"
-    name: "Maria Binder"
-    thema: "Backend & REST-API mit Node.js und Express"
-    betreuer: "Stefan Breiteneder"
-    klasse: "6AKIF"
+    name: "Dominic Schmidinger"
+    thema: "TODO: KOMMT NOCH"
+    betreuer: "Georg Graf"
+    klasse: "6BAIF"
   - nr: "III"
-    name: "Negin Sadeghi"
-    thema: "Datenbankarchitektur und Datenmodellierung mit PostgreSQL"
-    betreuer: "Stefan Breiteneder"
-    klasse: "6AKIF"
+    name: "Jakob Cezawa"
+    thema: "TODO: KOMMT NOCH"
+    betreuer: "Georg Graf"
+    klasse: "6AAIF"
+  - nr: "IV"
+    name: "Rodion Bal"
+    thema: "TODO: KOMMT NOCH"
+    betreuer: "Georg Graf"
+    klasse: "6AAIF"

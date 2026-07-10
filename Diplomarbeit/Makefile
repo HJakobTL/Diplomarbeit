@@ -2,14 +2,15 @@
 # Reihenfolge: Vorspann · 3 Individualeile · Projektarbeit
 
 FRONT     := $(sort $(wildcard 0-frontmatter/*.md))
-TEIL1     := $(sort $(wildcard 1-chapters-sami/*.md))
-TEIL2     := $(sort $(wildcard 2-chapters-maria/*.md))
-TEIL3     := $(sort $(wildcard 3-chapters-negin/*.md))
+TEIL1     := $(sort $(wildcard 1-chapters-alex/*.md))
+TEIL2     := $(sort $(wildcard 2-chapters-dominic/*.md))
+TEIL3     := $(sort $(wildcard 3-chapters-jakob/*.md))
+TEIL4     := $(sort $(wildcard 3-chapters-rodion/*.md))
 TEAM      := $(sort $(wildcard 9-projektarbeit/*.md))
-CHAPTERS  := $(FRONT) $(TEIL1) $(TEIL2) $(TEIL3) $(TEAM)
+CHAPTERS  := $(FRONT) $(TEIL1) $(TEIL2) $(TEIL3) $(TEIL4) $(TEAM)
 ASSETS    := $(wildcard assets/*)
 
-OUTPUT    := Diplomarbeit_BIS-Ares.pdf
+OUTPUT    := Diplomarbeit_Better_City.pdf
 TEX       := $(OUTPUT:.pdf=.tex)
 PANDOC    := pandoc
 
